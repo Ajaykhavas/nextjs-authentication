@@ -1,6 +1,7 @@
+import { ReactNode } from "react";
 import bgImage from "../../assets/Images/landing-image.jpg";
 
-const Layout = ({ children }: any) => {
+const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
     <div
       className="min-h-screen flex items-center justify-center relative"

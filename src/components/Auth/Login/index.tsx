@@ -1,9 +1,9 @@
-import { setIsLoggedIn, setIsShowLoginPopup } from "@/store/user-auth-modal-slice";
-import { useRouter } from "next/navigation";
 import React, { FormEvent, useState } from "react";
-import toast from "react-hot-toast";
+import { useRouter } from "next/navigation";
 import { useDispatch } from "react-redux";
+import toast from "react-hot-toast";
 import Cookies from "universal-cookie";
+import { setIsLoggedIn, setIsShowLoginPopup } from "@/store/user-auth-modal-slice";
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -23,9 +23,7 @@ const Login = () => {
   };
 
   const handleLogin = (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault(); // Prevent default form submission
-    // Access formData here and perform your logic
-    console.log(formData, ":::::::"); // Example: log formData to console
+    event.preventDefault();
 
     fetch("https://dummyjson.com/user/login", {
       method: "POST",
@@ -33,7 +31,6 @@ const Login = () => {
       body: JSON.stringify({
         username: formData.email,
         password: formData.password,
-        expiresInMins: 30, // optional, defaults to 60
       }),
     })
       .then((res) => res.json())
@@ -43,9 +40,8 @@ const Login = () => {
         if (data.token) {
           cookies.set("userToken", data.token, {
             path: "/",
-            expires: new Date(Date.now() + 1000 * 60 * 60 * 24 * 365),
           });
-          cookies.set("isLoggedIn", true, { path: "/", expires: new Date(Date.now() + 1000 * 60 * 60 * 24 * 365) });
+          cookies.set("isLoggedIn", true, { path: "/" });
 
           dispatch(setIsLoggedIn(true));
           dispatch(setIsShowLoginPopup(false));
@@ -56,7 +52,6 @@ const Login = () => {
         }
       });
 
-    // Reset form after submission (if needed)
     setFormData({
       email: "",
       password: "",
