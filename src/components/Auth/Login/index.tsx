@@ -10,7 +10,7 @@ const Login = () => {
   const router = useRouter();
 
   const [formData, setFormData] = useState({
-    email: "",
+    userName: "",
     password: "",
   });
 
@@ -29,7 +29,7 @@ const Login = () => {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        username: formData.email,
+        username: formData.userName,
         password: formData.password,
       }),
     })
@@ -53,7 +53,7 @@ const Login = () => {
       });
 
     setFormData({
-      email: "",
+      userName: "",
       password: "",
     });
   };
@@ -64,12 +64,12 @@ const Login = () => {
         <div>
           <input
             type="text"
-            name="email"
-            id="email"
-            value={formData.email}
+            name="userName"
+            id="userName"
+            value={formData.userName}
             onChange={handleInputChange}
             className="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-lg block w-full p-2.5 dark:placeholder-gray-400"
-            placeholder="Enter email"
+            placeholder="Enter user name"
             required
           />
         </div>
