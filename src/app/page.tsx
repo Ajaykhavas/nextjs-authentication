@@ -36,12 +36,12 @@ const Home = () => {
                     {modalType === "createAccount" ? "Create account" : "Login"}
                   </h3>
                   <div>
-                    <div
+                    <a
                       className="text-xs cursor-pointer pr-4 text-blue-500"
                       onClick={() => setModalType(modalType === "login" ? "createAccount" : "login")}
                     >
                       {modalType === "login" ? "Create account" : "Login"}
-                    </div>
+                    </a>
                     <button
                       type="button"
                       className="end-2.5 text-gray-400 bg-transparent rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center"
