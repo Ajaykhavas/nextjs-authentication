@@ -1,4 +1,4 @@
-import React, { MouseEventHandler } from "react";
+import React, { ChangeEventHandler } from "react";
 
 interface TextBoxProps {
   className?: string;
@@ -6,10 +6,10 @@ interface TextBoxProps {
   name?: string;
   value?: string;
   placeholder?: string;
-  onChange?: MouseEventHandler<HTMLButtonElement>;
+  onChange?: ChangeEventHandler<HTMLInputElement>;
 }
 
-const TextBox = ({ className, type, name, value, placeholder, onChange }: any) => {
+const TextBox = ({ className, type, name, value, placeholder, onChange }: TextBoxProps) => {
   return (
     <input
       type={type ?? "text"}
