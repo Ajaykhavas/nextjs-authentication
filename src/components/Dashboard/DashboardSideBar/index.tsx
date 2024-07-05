@@ -2,7 +2,7 @@ import LogoutButton from "../LogoutButton";
 
 const DashboardSideBar = () => {
   return (
-    <div className="h-screen w-40 bg-white p-5 flex flex-col gap-10 border-r">
+    <div className="h-screen w-40 sticky top-0 left-0 bg-white p-5 flex flex-col gap-10 border-r" suppressHydrationWarning={true}>
       <div className="text-lg font-bold text-black">travel4Med</div>
 
       <div className="text-black">

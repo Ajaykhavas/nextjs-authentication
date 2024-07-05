@@ -1,4 +1,6 @@
 "use client";
+import Button from "@/components/UI/Button";
+import TextBox from "@/components/UI/TextBox";
 import React, { FormEvent, useState } from "react";
 
 const Register = () => {
@@ -30,47 +32,33 @@ const Register = () => {
     <div>
       <form className="space-y-4" onSubmit={handleCreateAccount}>
         <div>
-          <input
-            type="name"
+          <TextBox
+            type="text"
             name="name"
-            id="name"
             value={formData.name}
+            placeholder="Enter user name"
             onChange={handleInputChange}
-            className="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-lg block w-full p-2.5 dark:placeholder-gray-400"
-            placeholder="Enter name"
-            required
           />
         </div>
         <div>
-          <input
+          <TextBox
             type="email"
             name="email"
-            id="email"
             value={formData.email}
+            placeholder="Enter user email"
             onChange={handleInputChange}
-            className="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-lg block w-full p-2.5 dark:placeholder-gray-400"
-            placeholder="Enter email"
-            required
           />
         </div>
         <div>
-          <input
+          <TextBox
             type="password"
             name="password"
-            id="password"
             value={formData.password}
-            onChange={handleInputChange}
             placeholder="Password"
-            className="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-lg block w-full p-2.5 dark:placeholder-gray-400"
-            required
+            onChange={handleInputChange}
           />
         </div>
-        <button
-          type="submit"
-          className="w-full text-white bg-blue-500 hover:bg-blue-600 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-xs px-5 py-2.5 text-center"
-        >
-          Sign in
-        </button>
+        <Button text="Sign in" />
       </form>
     </div>
   );

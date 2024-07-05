@@ -31,21 +31,13 @@ const Header = () => {
             </div>
 
             <nav className="hidden md:flex space-x-5">
-              <a href="#" className="hover:text-gray-300">
+              <a onClick={() => router.push("/location")} className="hover:text-gray-300 cursor-pointer">
                 Locations
               </a>
-              <a href="#" className="hover:text-gray-300">
-                Travel
-              </a>
-              <a href="#" className="hover:text-gray-300">
-                Webinar
-              </a>
-              <a href="#" className="hover:text-gray-300">
-                About
-              </a>
-              <a href="#" className="hover:text-gray-300">
-                Contact
-              </a>
+              <a className="hover:text-gray-300">Travel</a>
+              <a className="hover:text-gray-300">Webinar</a>
+              <a className="hover:text-gray-300">About</a>
+              <a className="hover:text-gray-300">Contact</a>
             </nav>
 
             <div className="flex-shrink-0 cursor-pointer" onClick={handleProfileIconClick}>
